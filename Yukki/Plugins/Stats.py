@@ -30,7 +30,7 @@ __MODULE__ = "Stats"
 __HELP__ = """
 
 
-/stats
+/mstats
 - Check the Stats of Bot.
 - Gets the stat of MongoDb , Assistant, System etc
 """
@@ -42,30 +42,25 @@ async def bot_sys_stats():
     mem = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = f"""
-**Uptime:** {get_readable_time((bot_uptime))}
-**CPU:** {cpu}%
-**RAM:** {mem}%
-**Disk: **{disk}%"""
+**Uptime:** `{get_readable_time((bot_uptime))}`
+**CPU:** `{cpu}%`
+**RAM:** `{mem}%`
+**Disk:** `{disk}%`"""
     return stats
 
 
-@app.on_message(filters.command("stats") & ~filters.edited)
+@app.on_message(filters.command("mstats") & ~filters.edited)
 async def gstats(_, message):
     start = datetime.now()
-    try:
-        await message.delete()
-    except:
-        pass
     uptime = await bot_sys_stats()
-    response = await message.reply_photo(
-        photo="Utils/Query.jpg", caption="Getting Stats!"
-    )
+    response = await message.reply("Getting Stats!")
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     smex = f"""
 [•]<u>**General Stats**</u>
 
-Ping: `⚡{resp} ms`
+PONG⚡ 
+`{resp} ms`
 {uptime}
     """
     await response.edit_text(smex, reply_markup=stats1)
@@ -220,7 +215,8 @@ async def stats_markup(_, CallbackQuery):
         smex = f"""
 [•]<u>General Stats</u>
 
-**Ping:** `⚡{resp} ms`
+**PONG⚡** 
+`{resp} ms`
 {uptime}"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats1)
     if command == "wait_stats":
