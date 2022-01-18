@@ -25,11 +25,11 @@ __HELP__ = """
 Only for Sudo Users
 
 
-/joinassistant [Chat Username or Chat ID]
+/userbotjoin or /ubotjoin [Chat Username or Chat ID]
 - Join assistant to a group.
 
 
-/leaveassistant [Chat Username or Chat ID]
+/userbotleave or /ubotleave [Chat Username or Chat ID]
 - Assistant will leave the particular group.
 
 
@@ -159,7 +159,7 @@ async def activevc(_, message: Message):
         if (await app.get_chat(x)).username:
             user = (await app.get_chat(x)).username
             text += (
-                f"<b>{j + 1}.</b> [{title}](https://t.me/{user})[`{x}`]\n"
+                f"<b>{j + 1}.</b> [{title}](https://t.me/{user}) [`{x}`]\n"
             )
         else:
             text += f"<b>{j + 1}. {title}</b> [`{x}`]\n"
@@ -192,7 +192,7 @@ async def activevi_(_, message: Message):
         if (await app.get_chat(x)).username:
             user = (await app.get_chat(x)).username
             text += (
-                f"<b>{j + 1}.</b> [{title}](https://t.me/{user})[`{x}`]\n"
+                f"<b>{j + 1}.</b> [{title}](https://t.me/{user}) [`{x}`]\n"
             )
         else:
             text += f"<b>{j + 1}. {title}</b> [`{x}`]\n"
@@ -206,7 +206,7 @@ async def activevi_(_, message: Message):
         )
 
 
-@app.on_message(filters.command("joinassistant") & filters.user(SUDOERS))
+@app.on_message(filters.command(["userbotjoin", "ubotjoin"]) & filters.user(SUDOERS))
 async def basffy(_, message):
     if len(message.command) != 2:
         await message.reply_text(
@@ -255,11 +255,11 @@ async def baaaf(_, message):
     await message.reply_text("Bot has left the chat successfully")
 
 
-@app.on_message(filters.command("leaveassistant") & filters.user(SUDOERS))
+@app.on_message(filters.command(["userbotleave", "ubotleave"]) & filters.user(SUDOERS))
 async def baujaf(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "**Usage:**\n/leave [Chat Username or Chat ID]"
+            "**Usage:**\n/userbotleave [Chat Username or Chat ID]"
         )
         return
     chat = message.text.split(None, 2)[1]
