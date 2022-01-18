@@ -7,26 +7,14 @@ from Yukki.Database import _get_theme, get_theme, save_theme
 from Yukki.Decorators.permission import PermissionCheck
 
 themes = [
-    "blue",
     "black",
-    "red",
-    "green",
-    "grey",
-    "orange",
-    "pink",
-    "yellow",
+    "cyan",
     "Random",
 ]
 
 themes2 = [
-    "blue",
     "black",
-    "red",
-    "green",
-    "grey",
-    "orange",
-    "pink",
-    "yellow",
+    "cyan",
 ]
 
 __MODULE__ = "Theme"
