@@ -159,11 +159,7 @@ async def admins(_, message: Message):
                         duration_min,
                         duration_min,
                     )
-                final_output = await message.reply_photo(
-                    photo=thumb,
-                    reply_markup=InlineKeyboardMarkup(buttons),
-                    caption=f"<b>__Skipped Voice Chat__</b>\n\n🎥<b>__Started Playing:__</b> {title} \n⏳<b>__Duration:__</b> {duration_min} \n👤<b>__Requested by:__ </b> {mention}",
-                )
+                final_output = await message.reply(f"⏭ **Skipped to the next track**\n\n🗂 **Name:** [{title[:80]}](https://www.youtube.com/watch?v={videoid})\n⏱ **Duration:** `{duration_min}`\n🎧 **Request by:** {mention}")
                 await start_timer(
                     videoid,
                     duration_min,
