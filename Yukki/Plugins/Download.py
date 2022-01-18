@@ -24,10 +24,10 @@ __HELP__ = """
 **Note:**
 Only for Sudo Users.
 
-/gban [Username or Reply to a user]
+/mgban [Username or Reply to a user]
 - Ban a user globally in Bot's Served Chats and prevents user from using bot commands.
 
-/ungban [Username or Reply to a user]
+/mungban [Username or Reply to a user]
 - Remove a user from Bot's GBan List.
 """
 
@@ -71,11 +71,11 @@ async def ytdata(_, CallbackQuery):
 
 
 inl = InlineKeyboardMarkup(
-    [[InlineKeyboardButton(text="Downloading......", callback_data=f"down")]]
+    [[InlineKeyboardButton(text="Downloading...", callback_data=f"down")]]
 )
 
 upl = InlineKeyboardMarkup(
-    [[InlineKeyboardButton(text="Uploading......", callback_data=f"down")]]
+    [[InlineKeyboardButton(text="Uploading...", callback_data=f"down")]]
 )
 
 
@@ -83,7 +83,7 @@ def inl_mark(videoid, user_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="Download or Upload Failed......", callback_data=f"down"
+                text="Download or Upload Failed...", callback_data=f"down"
             )
         ],
         [
@@ -121,16 +121,16 @@ async def boom(_, CallbackQuery):
         thumb_image_path = result["thumbnails"][0]["url"]
         channel = channel = result["channel"]["name"]
         fetched = f"""
-🔍**Track Downloaded**
+🔍 **Track Downloaded**
 
-❇️**Title:** {title}
+❇️ **Title:** `{title}`
 
-⏳**Duration:** {duration} Mins
-👀**Views:** `{views}`
-🎥**Channel Name:** {channel}
-🔗**Video Link:** [Link]({yturl})
+⏳ **Duration:** {duration} Mins
+👀 **Views:** `{views}`
+🎥 **Channel Name:** {channel}
+🔗 **Video Link:** [Link]({yturl})
 
-⚡️ __Youtube Inline Download Powered By {MUSIC_BOT_NAME}__"""
+⚡️ Youtube Inline Download Powered By {MUSIC_BOT_NAME}"""
     filext = "%(title)s.%(ext)s"
     userdir = os.path.join(os.getcwd(), "downloads", str(user_id))
     if not os.path.isdir(userdir):
