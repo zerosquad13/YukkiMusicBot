@@ -114,11 +114,6 @@ async def initiate_bot():
             )
             console.print(f"\n[red]Stopping Bot")
             return
-        try:
-            await ASS_CLI_1.join_chat("OfficialYukki")
-            await ASS_CLI_1.join_chat("YukkiSupport")
-        except:
-            pass
         console.print(f"├[red] Assistant 1 Started as {ASSNAME1}!")
         console.print(f"├[green] ID :- {ASSID1}!")
     if STRING2 != "None":
@@ -133,11 +128,6 @@ async def initiate_bot():
             )
             console.print(f"\n[red]Stopping Bot")
             return
-        try:
-            await ASS_CLI_2.join_chat("OfficialYukki")
-            await ASS_CLI_2.join_chat("YukkiSupport")
-        except:
-            pass
         console.print(f"├[red] Assistant 2 Started as {ASSNAME2}!")
         console.print(f"├[green] ID :- {ASSID2}!")
     if STRING3 != "None":
@@ -152,11 +142,6 @@ async def initiate_bot():
             )
             console.print(f"\n[red]Stopping Bot")
             return
-        try:
-            await ASS_CLI_3.join_chat("OfficialYukki")
-            await ASS_CLI_3.join_chat("YukkiSupport")
-        except:
-            pass
         console.print(f"├[red] Assistant 3 Started as {ASSNAME3}!")
         console.print(f"├[green] ID :- {ASSID3}!")
     if STRING4 != "None":
@@ -171,11 +156,6 @@ async def initiate_bot():
             )
             console.print(f"\n[red]Stopping Bot")
             return
-        try:
-            await ASS_CLI_4.join_chat("OfficialYukki")
-            await ASS_CLI_4.join_chat("YukkiSupport")
-        except:
-            pass
         console.print(f"├[red] Assistant 4 Started as {ASSNAME4}!")
         console.print(f"├[green] ID :- {ASSID4}!")
     if STRING5 != "None":
@@ -190,11 +170,6 @@ async def initiate_bot():
             )
             console.print(f"\n[red]Stopping Bot")
             return
-        try:
-            await ASS_CLI_5.join_chat("OfficialYukki")
-            await ASS_CLI_5.join_chat("YukkiSupport")
-        except:
-            pass
         console.print(f"├[red] Assistant 5 Started as {ASSNAME5}!")
         console.print(f"├[green] ID :- {ASSID5}!")
     if LOG_SESSION != "None":
@@ -209,11 +184,6 @@ async def initiate_bot():
             )
             console.print(f"\n[red]Stopping Bot")
             return
-        try:
-            await LOG_CLIENT.join_chat("OfficialYukki")
-            await LOG_CLIENT.join_chat("YukkiSupport")
-        except:
-            pass
     console.print(f"└[red] Yukki Music Bot Boot Completed.")
     if STRING1 != "None":
         await pytgcalls1.start()
@@ -234,12 +204,6 @@ My name is {BOT_NAME}.
 A Telegram Music+Video Streaming bot with some useful features.
 
 All commands can be used with: / """
-
-
-@app.on_message(filters.command("help") & filters.private)
-async def help_command(_, message):
-    text, keyboard = await help_parser(message.from_user.mention)
-    await app.send_message(message.chat.id, text, reply_markup=keyboard)
 
 
 @app.on_message(filters.command("start") & filters.private)
