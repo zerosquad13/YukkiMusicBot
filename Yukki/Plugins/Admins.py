@@ -152,7 +152,7 @@ async def admins(_, message: Message):
                 final_output = await message.reply_photo(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
-                    caption=f"<b>Skipped Voice Chat</b>\n\n🎥<b>Started Playing:</b> {title} \n⏱ <b>Duration:</b> {duration_min} \n🎧 <b>Requested by:</b> {mention}",
+                    caption=f"<b>Skipped Voice Chat</b>\n\n🎥 <b>Started Playing:</b> {title} \n⏱ <b>Duration:</b> {duration_min} \n🎧 <b>Requested by:</b> {mention}",
                 )
                 await start_timer(
                     videoid,
