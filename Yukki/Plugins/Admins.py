@@ -34,30 +34,20 @@ loop = asyncio.get_event_loop()
 
 __MODULE__ = "Voice Chat"
 __HELP__ = """
-
-
 /pause
 - Pause the playing music on voice chat.
-
 /resume
 - Resume the paused music on voice chat.
-
 /skip
 - Skip the current playing music on voice chat
-
 /end or /stop
 - Stop the playout.
-
 /queue
 - Check queue list.
-
-
 **Note:**
 Only for Sudo Users
-
 /activevc
 - Check active voice chats on bot.
-
 /activevideo
 - Check active video calls on bot.
 """
@@ -159,7 +149,11 @@ async def admins(_, message: Message):
                         duration_min,
                         duration_min,
                     )
-                final_output = await message.reply(f"⏭ **Skipped to the next track**\n\n🗂 **Name:** [{title[:80]}](https://www.youtube.com/watch?v={videoid})\n⏱ **Duration:** `{duration_min}`\n🎧 **Request by:** {mention}")
+                final_output = await message.reply_photo(
+                    photo=thumb,
+                    reply_markup=InlineKeyboardMarkup(buttons),
+                    caption=f"<b>__Skipped Voice Chat__</b>\n\n🎥<b>__Started Playing:__</b> {title} \n⏳<b>__Duration:__</b> {duration_min} \n👤<b>__Requested by:__ </b> {mention}",
+                )
                 await start_timer(
                     videoid,
                     duration_min,
@@ -228,8 +222,12 @@ async def admins(_, message: Message):
                     )
                     mention = db_mem[afk]["username"]
                     await mystic.delete()
-                    final_output = await message.reply(
-                        f"⏭ **Skipped to the next track**\n\n🗂 **Name:** [{title[:80]}](https://www.youtube.com/watch?v={videoid})\n⏱ **Duration:** `{duration_min}`\n🎧 **Request by:** {mention}"
+                    final_output = await message.reply_photo(
+                        photo=thumb,
+                        reply_markup=InlineKeyboardMarkup(buttons),
+                        caption=(
+                            f"<b>__Skipped Video Chat__</b>\n\n🎥<b>__Started Video Playing:__ </b> [{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n👤**__Requested by:__** {mention}"
+                        ),
                     )
                     await mystic.delete()
                     os.remove(thumb)
@@ -270,8 +268,12 @@ async def admins(_, message: Message):
                 )
                 await mystic.delete()
                 mention = db_mem[videoid]["username"]
-                final_output = await message.reply(
-                        f"⏭ **Skipped to the next track**\n\n🗂 **Name:** [{title[:80]}](https://www.youtube.com/watch?v={videoid})\n⏱ **Duration:** `{duration_min}`\n🎧 **Request by:** {mention}"
+                final_output = await message.reply_photo(
+                    photo=thumb,
+                    reply_markup=InlineKeyboardMarkup(buttons),
+                    caption=(
+                        f"<b>__Skipped Voice Chat__</b>\n\n🎥<b>__Started Playing:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n⏳<b>__Duration:__</b> {duration_min} Mins\n👤**__Requested by:__** {mention}"
+                    ),
                 )
                 os.remove(thumb)
                 await start_timer(
