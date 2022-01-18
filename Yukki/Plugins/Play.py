@@ -45,7 +45,7 @@ async def play(_, message: Message):
         db_mem[message.chat.id] = {}
     if message.sender_chat:
         return await message.reply_text(
-            "You're an __Anonymous Admin__ in this Chat Group!\nRevert back to User Account From Admin Rights."
+            "You're an Anonymous Admin in this Chat Group!\nRevert back to User Account From Admin Rights."
         )
     audio = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
@@ -157,7 +157,7 @@ async def play(_, message: Message):
         buttons = url_markup2(videoid, duration_min, message.from_user.id)
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"**🏷 Name:** {title}\n⏱ **Duration:** `{duration_min} Mins`\n💡 **Info:** [More Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
@@ -184,7 +184,7 @@ async def play(_, message: Message):
         )
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"**🏷 Name:** {title}\n⏱ **Duration:** `{duration_min} Mins`\n💡 **Info:** [More Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
@@ -265,7 +265,7 @@ async def search_query_more(_, CallbackQuery):
     med = InputMediaPhoto(
         media="Utils/result.png",
         caption=(
-            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>"
+            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🔗 <u> [More Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})</u>"
         ),
     )
     buttons = search_markup(
@@ -314,7 +314,7 @@ async def popat(_, CallbackQuery):
             query,
         )
         await CallbackQuery.edit_message_text(
-            f"6️⃣<b>{results[5]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[5]['id']})__</u>\n\n7️⃣<b>{results[6]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[6]['id']})__</u>\n\n8️⃣<b>{results[7]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[7]['id']})__</u>\n\n9️⃣<b>{results[8]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[8]['id']})__</u>\n\n🔟<b>{results[9]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[9]['id']})__</u>",
+            f"6️⃣<b>{results[5]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[5]['id']})</u>\n\n7️⃣<b>{results[6]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[6]['id']})</u>\n\n8️⃣<b>{results[7]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[7]['id']})</u>\n\n9️⃣<b>{results[8]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[8]['id']})</u>\n\n🔟<b>{results[9]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[9]['id']})</u>",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         disable_web_page_preview = True
@@ -335,7 +335,7 @@ async def popat(_, CallbackQuery):
             query,
         )
         await CallbackQuery.edit_message_text(
-            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>",
+            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🔗 <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})</u>",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         disable_web_page_preview = True
@@ -372,7 +372,7 @@ async def slider_query_results(_, CallbackQuery):
         )
         med = InputMediaPhoto(
             media=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"**🏷 Name:** {title}\n⏱ **Duration:** `{duration_min} Mins`\n💡 **Info:** [More Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})",
         )
         return await CallbackQuery.edit_message_media(
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
@@ -395,7 +395,7 @@ async def slider_query_results(_, CallbackQuery):
         )
         med = InputMediaPhoto(
             media=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"**🏷 Name:** {title}\n⏱ **Duration:** `{duration_min} Mins`\n💡 **Info:** [More Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})",
         )
         return await CallbackQuery.edit_message_media(
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
