@@ -6,7 +6,7 @@ import aiofiles
 import aiohttp
 from PIL import Image, ImageDraw, ImageFont
 
-themes = ["cyan", "black"]
+themes = ["cyan", "grey"]
 
 
 def changeImageSize(maxWidth, maxHeight, image):
