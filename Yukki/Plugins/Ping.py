@@ -22,23 +22,19 @@ async def bot_sys_stats():
     mem = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = f"""
-Uptime: {get_readable_time((bot_uptime))}
-CPU: {cpu}%
-RAM: {mem}%
-Disk: {disk}%"""
+**Uptime:** {get_readable_time((bot_uptime))}
+**CPU:** {cpu}%
+**RAM:** {mem}%
+**Disk:** {disk}%"""
     return stats
 
 
 @app.on_message(filters.command(["ping", f"ping@{BOT_USERNAME}"]))
 async def ping(_, message):
     start = datetime.now()
-    response = await message.reply_photo(
-        photo="Utils/Query.jpg",
-        caption=">> Pong!",
-    )
     uptime = await bot_sys_stats()
     end = datetime.now()
     resp = (end - start).microseconds / 1000
-    await response.edit_text(
-        f"**Pong!**\n`⚡{resp} ms`\n\n<b><u>{MUSIC_BOT_NAME} System Stats:</u></b>{uptime}"
+    await message.reply(
+        f"**Pong!**⚡\n`{resp} ms`\n\n<b><u>{MUSIC_BOT_NAME} System Stats:</u></b>{uptime}"
     )
