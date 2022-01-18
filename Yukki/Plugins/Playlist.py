@@ -112,15 +112,10 @@ async def play_playlist_cmd(_, message):
 @PermissionCheck
 @AssistantAdd
 async def playlist(_, message):
-    thumb = "Utils/Playlist.jpg"
     user_id = message.from_user.id
     user_name = message.from_user.first_name
     buttons = check_markup(user_name, user_id, "abcd")
-    await message.reply_photo(
-        photo=thumb,
-        caption=(
-            f"**{MUSIC_BOT_NAME}'s Playlist Feature**\n\nSelect The Playlist, You want to **check!**"
-        ),
+    await message.reply(f"**{MUSIC_BOT_NAME}'s Playlist Feature**\n\nSelect The Playlist, You want to **check!**",
         reply_markup=InlineKeyboardMarkup(buttons),
     )
     return
