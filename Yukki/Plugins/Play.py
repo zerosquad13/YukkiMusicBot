@@ -118,7 +118,7 @@ async def play(_, message: Message):
                 pass
             else:
                 return await message.reply_text(
-                    "Sorry! Bot only allows limited number of video calls due to CPU overload issues. Many other chats are using video call right now. Try switching to audio or try again later"
+                    f"Maaf! {MUSIC_BOT_NAME} hanya mengizinkan panggilan video dalam jumlah terbatas karena masalah overload CPU. Banyak obrolan lain menggunakan streaming video. silahkan beralih ke audio atau coba lagi nanti"
                 )
         mystic = await message.reply_text(
             "🔄 Processing Video... Please Wait!"
@@ -225,7 +225,6 @@ async def Music_Stream(_, CallbackQuery):
         return await CallbackQuery.message.reply_text(
             f"**Duration Limit Exceeded**\n\n**Allowed Duration: **{DURATION_LIMIT_MIN} minute(s)\n**Received Duration:** {duration_min} minute(s)"
         )
-    await CallbackQuery.answer(f"Processing:- {title[:20]}", show_alert=True)
     mystic = await CallbackQuery.message.reply_text(
         f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
     )
