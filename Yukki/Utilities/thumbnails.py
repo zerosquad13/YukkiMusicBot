@@ -6,6 +6,8 @@ import aiofiles
 import aiohttp
 from PIL import Image, ImageDraw, ImageFont
 
+themes = ["cyan", "black"]
+
 
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
@@ -23,8 +25,9 @@ async def gen_thumb(thumbnail, title, userid, theme, ctitle):
                 f = await aiofiles.open(f"cache/thumb{userid}.jpg", mode="wb")
                 await f.write(await resp.read())
                 await f.close()
+    theme = random.choice(themes)
     image1 = Image.open(f"cache/thumb{userid}.jpg")
-    image2 = Image.open(f"Utils/{theme}.PNG")
+    image2 = Image.open(f"Utils/{theme}.png")
     image3 = changeImageSize(1280, 720, image1)
     image4 = changeImageSize(1280, 720, image2)
     image5 = image3.convert("RGBA")
