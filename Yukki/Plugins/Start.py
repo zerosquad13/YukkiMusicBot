@@ -99,9 +99,8 @@ async def welcome(_, message: Message):
 async def useradd(_, message: Message):
     out = start_pannel()
     await asyncio.gather(
-        message.delete(),
         message.reply_text(
-            f"Thanks for having me in {message.chat.title}.\n{MUSIC_BOT_NAME} is alive.\n\nFor any assistance or help, checkout our support group and channel.",
+            f"Thanks for having me in {message.chat.title}.\n\nFor any assistance or help, checkout our support group and channel.",
             reply_markup=InlineKeyboardMarkup(out[1]),
         ),
     )
@@ -122,7 +121,6 @@ async def settings(_, message: Message):
         volume = _check["volume"]
     text, buttons = setting_markup2()
     await asyncio.gather(
-        message.delete(),
         message.reply_text(
             f"{text}\n\n**Group:** {message.chat.title}\n**Group ID:** {message.chat.id}\n**Volume Level:** {volume}%",
             reply_markup=InlineKeyboardMarkup(buttons),
