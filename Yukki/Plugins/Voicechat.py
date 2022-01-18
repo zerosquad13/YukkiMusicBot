@@ -45,7 +45,7 @@ async def gback_list_chose_stream(_, CallbackQuery):
     videoid, duration, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "This is not for you! Search You Own Song.", show_alert=True
+            "Ini bukan untukmu! Cari Lagu anda Sendiri.", show_alert=True
         )
     buttons = choose_markup(videoid, duration, user_id)
     await CallbackQuery.edit_message_reply_markup(
@@ -89,7 +89,7 @@ async def timer_checkup_markup(_, CallbackQuery):
         )
 
 
-@app.on_message(filters.command("queue"))
+@app.on_message(filters.command(["queue", "playlist"]))
 async def activevc(_, message: Message):
     global get_queue
     if await is_active_chat(message.chat.id):
@@ -110,8 +110,8 @@ async def activevc(_, message: Message):
         msg = "**Queued List**\n\n"
         msg += "**Currently Playing:**"
         msg += "\n▶️" + current_playing[:30]
-        msg += f"\n   ├ By:- {user_name}"
-        msg += f"\n   └ Duration:- Remaining `{dur_left}` out of `{duration_min}` Mins."
+        msg += f"\n   ├ **By:** {user_name}"
+        msg += f"\n   └ **Duration:** Remaining `{dur_left}` out of `{duration_min}` Minute."
         fetched.pop(0)
         if fetched:
             msg += "\n\n"
@@ -121,8 +121,8 @@ async def activevc(_, message: Message):
                 usr = song[1]
                 dur = song[2]
                 msg += f"\n⏸️{name}"
-                msg += f"\n   ├ Duration : {dur}"
-                msg += f"\n   └ Requested by : {usr}\n"
+                msg += f"\n   ├ Duration: {dur}"
+                msg += f"\n   └ Requested by: {usr}\n"
         if len(msg) > 4096:
             await mystic.delete()
             filename = "queue.txt"
