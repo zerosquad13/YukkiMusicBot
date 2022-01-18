@@ -12,7 +12,7 @@ from Yukki.Utilities.ping import get_readable_time
 __MODULE__ = "Ping"
 __HELP__ = """
 
-/ping - Check if Bot is alive or not.
+/mping - Check if Bot is alive or not.
 """
 
 
@@ -29,7 +29,7 @@ async def bot_sys_stats():
     return stats
 
 
-@app.on_message(filters.command(["ping", f"ping@{BOT_USERNAME}"]))
+@app.on_message(filters.command(["mping", f"mping@{BOT_USERNAME}"]))
 async def ping(_, message):
     start = datetime.now()
     uptime = await bot_sys_stats()
