@@ -77,7 +77,7 @@ async def quality_markup(_, CallbackQuery):
             pass
         else:
             return await CallbackQuery.answer(
-                "Sorry! Bot only allows limited number of video calls due to CPU overload issues. Other chats are using video call right now. Try switching to audio or try again later",
+                f"Maaf! {MUSIC_BOT_NAME} hanya mengizinkan panggilan video dalam jumlah terbatas karena masalah overload CPU. Banyak obrolan lain menggunakan streaming video. silahkan beralih ke audio atau coba lagi nanti",
                 show_alert=True,
             )
     if CallbackQuery.message.chat.id not in db_mem:
@@ -93,7 +93,6 @@ async def quality_markup(_, CallbackQuery):
             pass
     except:
         pass
-    await CallbackQuery.answer()
     callback_data = CallbackQuery.data.strip()
     callback_request = callback_data.split(None, 1)[1]
     videoid, duration, user_id = callback_request.split("|")
@@ -121,7 +120,7 @@ async def Live_Videos_Stream(_, CallbackQuery):
             pass
         else:
             return await CallbackQuery.answer(
-                "Sorry! Bot only allows limited number of video calls due to CPU overload issues. Other chats are using video call right now. Try switching to audio or try again later",
+                f"Maaf! {MUSIC_BOT_NAME} hanya mengizinkan panggilan video dalam jumlah terbatas karena masalah overload CPU. Banyak obrolan lain menggunakan streaming video. silahkan beralih ke audio atau coba lagi nanti",
                 show_alert=True,
             )
     if CallbackQuery.message.chat.id not in db_mem:
@@ -137,7 +136,6 @@ async def Live_Videos_Stream(_, CallbackQuery):
         )
     await CallbackQuery.message.delete()
     title, duration_min, duration_sec, thumbnail = get_yt_info_id(videoid)
-    await CallbackQuery.answer(f"Processing:- {title[:20]}", show_alert=True)
     theme = await check_theme(chat_id)
     chat_title = await specialfont_to_normal(chat_title)
     thumb = await gen_thumb(thumbnail, title, user_id, theme, chat_title)
@@ -181,9 +179,8 @@ async def Videos_Stream(_, CallbackQuery):
     title, duration_min, duration_sec, thumbnail = get_yt_info_id(videoid)
     if duration_sec > DURATION_LIMIT:
         return await CallbackQuery.message.reply_text(
-            f"**Duration Limit Exceeded**\n\n**Allowed Duration: **{DURATION_LIMIT_MIN} minute(s)\n**Received Duration:** {duration_min} minute(s)"
+            f"**Duration Limit Exceeded**\n\n**Allowed Duration: **{DURATION_LIMIT_MIN} minute\n**Received Duration:** {duration_min} minute"
         )
-    await CallbackQuery.answer(f"Processing:- {title[:20]}", show_alert=True)
     theme = await check_theme(chat_id)
     chat_title = await specialfont_to_normal(chat_title)
     thumb = await gen_thumb(thumbnail, title, user_id, theme, chat_title)
