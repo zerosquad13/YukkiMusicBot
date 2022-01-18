@@ -15,7 +15,7 @@ from config import (LOG_GROUP_ID, LOG_SESSION, STRING1, STRING2, STRING3,
 from Yukki import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4, ASS_CLI_5,
                    ASSID1, ASSID2, ASSID3, ASSID4, ASSID5, ASSNAME1, ASSNAME2,
                    ASSNAME3, ASSNAME4, ASSNAME5, BOT_ID, BOT_NAME, LOG_CLIENT,
-                   OWNER_ID, app)
+                   MUSIC_BOT_NAME, OWNER_ID, app)
 from Yukki.Core.Clients.cli import LOG_CLIENT
 from Yukki.Core.PyTgCalls.Yukki import (pytgcalls1, pytgcalls2, pytgcalls3,
                                         pytgcalls4, pytgcalls5)
@@ -82,12 +82,12 @@ async def initiate_bot():
             status="[bold blue]Importation Completed!",
         )
     console.print(
-        "[bold green]Congrats!! Yukki Music Bot has started successfully!\n"
+        f"[bold green]Congrats!! {MUSIC_BOT_NAME} has started successfully!\n"
     )
     try:
         await app.send_message(
             LOG_GROUP_ID,
-            "<b>Congrats!! Music Bot has started successfully!</b>",
+            f"<b>Congrats!! {MUSIC_BOT_NAME} Music Bot has started successfully!</b>",
         )
     except Exception as e:
         print(
@@ -184,7 +184,7 @@ async def initiate_bot():
             )
             console.print(f"\n[red]Stopping Bot")
             return
-    console.print(f"└[red] Yukki Music Bot Boot Completed.")
+    console.print(f"└[red] {MUSIC_BOT_NAME} Music Bot Boot Completed.")
     if STRING1 != "None":
         await pytgcalls1.start()
     if STRING2 != "None":
@@ -276,26 +276,26 @@ async def start_command(_, message):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = f"""
-🔍__**Video Track Information**__
+🔍 **Video Track Information**
 
-❇️**Title:** {title}
+❇️ **Title:** {title}
 
-⏳**Duration:** {duration} Mins
-👀**Views:** `{views}`
-⏰**Published Time:** {published}
-🎥**Channel Name:** {channel}
-📎**Channel Link:** [Visit From Here]({channellink})
-🔗**Video Link:** [Link]({link})
+⏳ **Duration:** `{duration} Mins`
+👀 **Views:** `{views}`
+⏰ **Published Time:** {published}
+🎥 **Channel Name:** {channel}
+📎 **Channel Link:** [Visit From Here]({channellink})
+🔗 **Video Link:** [Link]({link})
 
-⚡️ __Searched Powered By {BOT_NAME}__"""
+⚡️ Searched Powered By {BOT_NAME}"""
             key = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="🎥 Watch Youtube Video", url=f"{link}"
+                            text="ᴡᴀᴛᴄʜ ᴏɴ ʏᴏᴜᴛᴜʙᴇ", url=f"{link}"
                         ),
                         InlineKeyboardButton(
-                            text="🔄 Close", callback_data="close"
+                            text="ᴄʟᴏsᴇ", callback_data="close"
                         ),
                     ],
                 ]
@@ -377,10 +377,10 @@ All commands can be used with: /
             [
                 [
                     InlineKeyboardButton(
-                        text="↪️ Back", callback_data="help_back"
+                        text="« ʙᴀᴄᴋ", callback_data="help_back"
                     ),
                     InlineKeyboardButton(
-                        text="🔄 Close", callback_data="close"
+                        text="ᴄʟᴏsᴇ", callback_data="close"
                     ),
                 ],
             ]
