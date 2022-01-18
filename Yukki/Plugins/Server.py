@@ -49,7 +49,7 @@ __HELP__ = f"""
 /update
 - Update Your Bot.
 
-/restart 
+/mrestart 
 - Restart Bot [All downloads, cache, raw files will be cleared too]. 
 """
 
