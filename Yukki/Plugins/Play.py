@@ -41,7 +41,6 @@ loop = asyncio.get_event_loop()
 @PermissionCheck
 @AssistantAdd
 async def play(_, message: Message):
-    await message.delete()
     if message.chat.id not in db_mem:
         db_mem[message.chat.id] = {}
     if message.sender_chat:
