@@ -263,7 +263,7 @@ async def search_query_more(_, CallbackQuery):
     med = InputMediaPhoto(
         media="Utils/result.png",
         caption=(
-            f"1️⃣ <b>{results[0]['title']}</b>\n └ <u> [More Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})</u>\n\n2️⃣ <b>{results[1]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})</u>\n\n3️⃣ <b>{results[2]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})</u>\n\n4️⃣ <b>{results[3]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})</u>\n\n5️⃣ <b>{results[4]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})</u>"
+            f"1️⃣ <b>{results[0]['title'][:25]}</b>\n └ <u> [More Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})</u>\n\n2️⃣ <b>{results[1]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})</u>\n\n3️⃣ <b>{results[2]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})</u>\n\n4️⃣ <b>{results[3]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})</u>\n\n5️⃣ <b>{results[4]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})</u>"
         ),
     )
     buttons = search_markup(
@@ -312,7 +312,7 @@ async def popat(_, CallbackQuery):
             query,
         )
         await CallbackQuery.edit_message_text(
-            f"6️⃣ <b>{results[5]['title']}</b>\n └ <u> [More Information](https://t.me/{BOT_USERNAME}?start=info_{results[5]['id']})</u>\n\n7️⃣ <b>{results[6]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[6]['id']})</u>\n\n8️⃣ <b>{results[7]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[7]['id']})</u>\n\n9️⃣ <b>{results[8]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[8]['id']})</u>\n\n🔟 <b>{results[9]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[9]['id']})</u>",
+            f"6️⃣ <b>{results[5]['title'][:25]}</b>\n └ <u> [More Information](https://t.me/{BOT_USERNAME}?start=info_{results[5]['id']})</u>\n\n7️⃣ <b>{results[6]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[6]['id']})</u>\n\n8️⃣ <b>{results[7]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[7]['id']})</u>\n\n9️⃣ <b>{results[8]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[8]['id']})</u>\n\n🔟 <b>{results[9]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[9]['id']})</u>",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         disable_web_page_preview = True
@@ -333,7 +333,7 @@ async def popat(_, CallbackQuery):
             query,
         )
         await CallbackQuery.edit_message_text(
-            f"1️⃣ <b>{results[0]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})</u>\n\n2️⃣ <b>{results[1]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})</u>\n\n3️⃣ <b>{results[2]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})</u>\n\n4️⃣ <b>{results[3]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})</u>\n\n5️⃣ <b>{results[4]['title']}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})</u>",
+            f"1️⃣ <b>{results[0]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})</u>\n\n2️⃣ <b>{results[1]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})</u>\n\n3️⃣ <b>{results[2]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})</u>\n\n4️⃣ <b>{results[3]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})</u>\n\n5️⃣ <b>{results[4]['title'][:25]}</b>\n └ <u>[More Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})</u>",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         disable_web_page_preview = True
